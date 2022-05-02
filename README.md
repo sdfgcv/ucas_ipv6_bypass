@@ -168,8 +168,11 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 如果设置完成后无法使用，多半是ip6tables的问题
 
 ip6tables -P INPUT ACCEPT
+
 ip6tables -P FORWARD ACCEPT
+
 ip6tables -P OUTPUT ACCEPT
+
 ip6tables -F
 
 ## 第三步.配置本地电脑（windows环境，linux和mac也是可以用的，配置方法请自行寻找）
