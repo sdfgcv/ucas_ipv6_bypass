@@ -36,7 +36,7 @@
 
 只有满足该条件，才证明你的网络情况支持IPV6代理绕过校园网认证。
 
-![not-login-ipv6-test-result](/images/ucas-ipv6-bypass/not-login-ipv6-test-result.png)
+![not-login-ipv6-test-result](/images/not-login-ipv6-test-result.png)
 
 ## 第一步.购买一台境外服务器（需有IPV6地址，这点非常重要）
 
@@ -46,7 +46,7 @@
 
 链接：[https://www.vultr.com/](https://www.vultr.com/?ref=7407281)
 
-![register-Vultr](/images/ucas-ipv6-bypass/register-Vultr.png)
+![register-Vultr](/images/register-Vultr.png)
 
 推荐原因：搭建此类服务器容易被封IP或者端口，Vultr删除和新建服务器比较容易且速度很快。
 
@@ -56,7 +56,7 @@
 
 最低充值10美刀，然后扫码付款即可。
 
-![Vultr-payment](/images/ucas-ipv6-bypass/Vultr-payment.png)
+![Vultr-payment](/images/Vultr-payment.png)
 
 ### 3.购买服务器
 购买服务器有以下几个原则
@@ -67,17 +67,17 @@
 
 （1）服务器类型选择Cloud Compute
 
-![cselect-CloudCompute](/images/ucas-ipv6-bypass/select-CloudCompute.png)
+![cselect-CloudCompute](/images/select-CloudCompute.png)
 
 (2)服务器地址推荐最近的亚洲新加坡
 
-![select-sgp](/images/ucas-ipv6-bypass/select-sgp.png)
+![select-sgp](/images/select-sgp.png)
 
 （3）镜像选择Ubuntu
 
 #### 镜像推荐自己习惯的发行版本，下文环境均以Ubuntu为例开发，若不知如何选择，选Ubuntu即可
 
-![select-Ubuntu](/images/ucas-ipv6-bypass/select-Ubuntu.png)
+![select-Ubuntu](/images/select-Ubuntu.png)
 
 （4）服务器大小，选最小的即可
 
@@ -89,15 +89,15 @@
 - 1 GB memory：1G运行内存
 - 1 TB Bandwidth：千兆带宽（这个配置的流量是一月1000G）
 
-![select-server-size](/images/ucas-ipv6-bypass/select-server-size.png)
+![select-server-size](/images/select-server-size.png)
 
 （5）配置勾选IPV6（重要！！！）
 
-![check-IPV6](/images/ucas-ipv6-bypass/check-IPV6.png)
+![check-IPV6](/images/check-IPV6.png)
 
 （6）点击创建服务器
 
-![deploy-server](/images/ucas-ipv6-bypass/deploy-server.png)
+![deploy-server](/images/deploy-server.png)
 
 ## 第二步.配置服务器
 
@@ -109,13 +109,13 @@
 - 第二行填入“22”（22端口为默认的SSH登录端口）
 - 结果显示开放即表明服务器存活
 
-![port-scan](/images/ucas-ipv6-bypass/port-scan.png)
+![port-scan](/images/port-scan.png)
 
 ### 2.安装ssr
 
 使用xshell、termius等工具连接至服务器
 
-![ssh-connect-server](/images/ucas-ipv6-bypass/ssh-connect-server.png)
+![ssh-connect-server](/images/ssh-connect-server.png)
 
 执行以下代码
 
@@ -124,7 +124,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 ```
 结果如图
 
-![deploy-ssr](/images/ucas-ipv6-bypass/deploy-ssr.png)
+![deploy-ssr](/images/deploy-ssr.png)
 
 依次选择：
 - 1：选择安装ssr
@@ -139,7 +139,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 之后就会开始安装ssr，结果如图所示
 
-![deploy-done-ssr](/images/ucas-ipv6-bypass/deploy-done-ssr.png)
+![deploy-done-ssr](/images/deploy-done-ssr.png)
 
 也可对ssr进行加速优化，如：安装BBR加速。不安装也不影响使用，此处不做讲解，请自行了解。
 
@@ -151,11 +151,11 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 这个是对IPV4防火墙tcp协议进行配置
 
-![firewall-config-ipv4-tcp](/images/ucas-ipv6-bypass/firewall-config-ipv4-tcp.png)
+![firewall-config-ipv4-tcp](/images/firewall-config-ipv4-tcp.png)
 
 这个是对IPV4防火墙udp协议进行配置
 
-![firewall-config-ipv4-udp](/images/ucas-ipv6-bypass/firewall-config-ipv4-udp.png)
+![firewall-config-ipv4-udp](/images/firewall-config-ipv4-udp.png)
 
 再对IPV6的TCP和UDP进行配置即可
 
@@ -167,11 +167,11 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 ### 2.打开后对应栏目填写对应服务器端的信息
 
-![ssr-client-config](/images/ucas-ipv6-bypass/ssr-client-config.png)
+![ssr-client-config](/images/ssr-client-config.png)
 
 ### 注意：这里的IP地址应填写服务器的IPV6地址
 
-![server-ipv6-address](/images/ucas-ipv6-bypass/server-ipv6-address.png)
+![server-ipv6-address](/images/server-ipv6-address.png)
 
 ### 3.配置ssr
 
@@ -184,13 +184,13 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 右键点击小飞机->选项设置  打开内网代理功能
 
-![allow-internal-proxy](/images/ucas-ipv6-bypass/allow-internal-proxy.png)
+![allow-internal-proxy](/images/allow-internal-proxy.png)
 
 ### 自此，退出校园网登录后，谷歌、B站等网页也可以正常使用
 
 ### 此时打开[https://ipv6-test.com/](https://ipv6-test.com/)，应该显示为下图情况
 
-![after-proxy-ipv6-test-result](/images/ucas-ipv6-bypass/after-proxy-ipv6-test-result.png)
+![after-proxy-ipv6-test-result](/images/after-proxy-ipv6-test-result.png)
 
 ## 第四步.软件配置
 
@@ -198,19 +198,19 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 以微信为例（其他软件配置同理）
 
-![wechat-proxy-config](/images/ucas-ipv6-bypass/wechat-proxy-config.png)
+![wechat-proxy-config](/images/wechat-proxy-config.png)
 
 ## 第五步.效果测评
 
 校园网未登录ipv6-test结果
 
-![not-login-ipv6-test-result](/images/ucas-ipv6-bypass/not-login-ipv6-test-result.png)
+![not-login-ipv6-test-result](/images/not-login-ipv6-test-result.png)
 
 校园网未登录，代理后ipv6-test结果
 
-![after-proxy-ipv6-test-result](/images/ucas-ipv6-bypass/after-proxy-ipv6-test-result.png)
+![after-proxy-ipv6-test-result](/images/after-proxy-ipv6-test-result.png)
 
 代理后裸连测速，结果接近500Mb/s
 
-![speedtest-after-proxy](/images/ucas-ipv6-bypass/speedtest-after-proxy.png)
+![speedtest-after-proxy](/images/speedtest-after-proxy.png)
 
