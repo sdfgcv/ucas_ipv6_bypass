@@ -141,9 +141,57 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 ![deploy-done-ssr](/images/deploy-done-ssr.png)
 
-也可对ssr进行加速优化，如：安装BBR加速。不安装也不影响使用，此处不做讲解，请自行了解。
+### 3.可能存在的问题
 
-### 3.设置防火墙
+（1）如果报错启动失败
+
+使用以下命令查看日志
+
+```
+cat /usr/local/shadowsocksr/shadowsocks/ssserver.log
+```
+
+发现报错信息如下
+
+```
+nohup: failed to run command 'python': No such file or directory
+```
+
+解释：脚本是用 python2 执行的，但执行命令使用的二进制文件是 python 。新版本的系统中默认安装了 python2 和 python3 ，但未指明 python 对应版本是哪一个
+
+解决方法：使用软链接将系统中的 python 设置为 python2
+
+```
+apt install python2 -y
+ln -s /usr/bin/python2 /usr/bin/python
+```
+
+再次打开ssr.sh脚本启动ssr
+```
+bash ssr.sh
+```
+
+选择 10
+
+当前状态显示为“已安装 并 已启动”时证明启动成功
+
+（2）放行系统内部防火墙
+
+系统内部还有内置的 iptables v4防火墙和 ip6tables v6防火墙，都需要进行放行
+
+```
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -F
+
+ip6tables -P INPUT ACCEPT
+ip6tables -P FORWARD ACCEPT
+ip6tables -P OUTPUT ACCEPT
+ip6tables -F
+```
+
+### 4.设置外部防火墙
 
 [https://my.vultr.com/firewall/](https://my.vultr.com/firewall/)
 
